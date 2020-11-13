@@ -1,3 +1,24 @@
+a) First Question:
 1. The topographic wetness index (TWI), also known as the compound topographic index (CTI), is a steady state wetness index. It is commonly used to quantify topographic control on hydrological processes.[1] The index is a function of both the slope and the upstream contributing area per unit width orthogonal to the flow direction (wikipedia.org
 
 2. Areas prone to water accumulation (large contributing drainage areas) and characterized by low slope angle will be linked to high TWI values. On the other hand, well-drained dry areas (steep slopes) are associated to low TWI values.
+
+b) Second Question:
+1. possible FOSS GIS Solutions: GRASS GIS, Whitebox GAT and SAGA 
+A more indepth comparison between these tools calculating the TWI can be found here: https://opengeospatialdata.springeropen.com/articles/10.1186/s40965-019-0066-y
+
+Short Version:
+
+SAGA GIS - 
+Einzelnes Tool: Terrain Analysis - Hydrology - Topographic Wetness Index (TWI)
+oder aber auch über 
+
+In der GRASS GIS Umgebung gibt es die Möglichkeit den TWI mit Hilfe der folgenden Tools zu berechnen:
+a.) r.topidx
+b.) r. watershed
+c.) r. terraflow
+
+Whitebox GAT
+To calculate the TWI with Whitebox GAT the user has to follow a step-by-step approach. Firstly, the DEM has to be hydrologically corrected; the user can choose between the Fill Depression (Wang & Liu) tool, the Fill Depression (Planchon & Darboux) and the Breach Depression tool (which is the recommended one by the developers). Then, the corrected DEM can be used to obtain the flow accumulation map. If the desired flow routing algorithm is the Dinf, D8 or Rho8, the user has to run respectively the Dinf Flow Pointer, D8 Flow Pointer or Rho8 Flow Pointer tool first; the maps obtained can be used as input for the D-infinity Flow Accumulation tool or for the D8 and Rho8 Flow Accumulation tool, specifying the specific catchment area (SCA) as output type, to calculate the SCA [10, 38]. If the user wants to use the TMFD (here called MDinf) or the MFD (here called FD8) flow routing algorithm, the SCA can be directly calculated using the corrected DEM as input for the MDinf Flow Accumulation or the FD8 Flow Accumulation tool, selecting as output type the specific catchment area [34]. The latter tools give also the possibility to set a non-dispersive threshold. This threshold establishes the flow accumulation value above which flow dispersion is no longer allowed. Those grid cells with flow-accumulation values above this limit will have their flow routed with a single-flow-direction algorithm similar to the D8 algorithm. Therefore, the flow will be routed entirely to the steepest downslope neighbouring cell. This, under the assumption that flow dispersion is not realistic once flow becomes channelized, while it is opportune on hillslope areas. In addition, the user can set a different exponent parameter, the default value is 1, to modify the amount of flow dispersion.
+(https://link.springer.com/article/10.1186/s40965-019-0066-y)
+
