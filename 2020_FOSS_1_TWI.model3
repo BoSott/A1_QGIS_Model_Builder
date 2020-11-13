@@ -1,0 +1,464 @@
+<!DOCTYPE model>
+<Option type="Map">
+  <Option type="Map" name="children">
+    <Option type="Map" name="gdal:cliprasterbymasklayer_1">
+      <Option type="bool" name="active" value="true"/>
+      <Option name="alg_config"/>
+      <Option type="QString" name="alg_id" value="gdal:cliprasterbymasklayer"/>
+      <Option type="QString" name="component_description" value="Clip raster by mask layer"/>
+      <Option type="double" name="component_pos_x" value="475"/>
+      <Option type="double" name="component_pos_y" value="243"/>
+      <Option name="dependencies"/>
+      <Option type="QString" name="id" value="gdal:cliprasterbymasklayer_1"/>
+      <Option name="outputs"/>
+      <Option type="bool" name="outputs_collapsed" value="true"/>
+      <Option type="bool" name="parameters_collapsed" value="true"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="ALPHA_BAND">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="bool" name="static_value" value="false"/>
+          </Option>
+        </Option>
+        <Option type="List" name="CROP_TO_CUTLINE">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="bool" name="static_value" value="true"/>
+          </Option>
+        </Option>
+        <Option type="List" name="DATA_TYPE">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="int" name="static_value" value="0"/>
+          </Option>
+        </Option>
+        <Option type="List" name="EXTRA">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="QString" name="static_value" value=""/>
+          </Option>
+        </Option>
+        <Option type="List" name="INPUT">
+          <Option type="Map">
+            <Option type="QString" name="parameter_name" value="DEM"/>
+            <Option type="int" name="source" value="0"/>
+          </Option>
+        </Option>
+        <Option type="List" name="KEEP_RESOLUTION">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="bool" name="static_value" value="true"/>
+          </Option>
+        </Option>
+        <Option type="List" name="MASK">
+          <Option type="Map">
+            <Option type="QString" name="parameter_name" value="extent"/>
+            <Option type="int" name="source" value="0"/>
+          </Option>
+        </Option>
+        <Option type="List" name="MULTITHREADING">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="bool" name="static_value" value="false"/>
+          </Option>
+        </Option>
+        <Option type="List" name="NODATA">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="invalid" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="OPTIONS">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="QString" name="static_value" value=""/>
+          </Option>
+        </Option>
+        <Option type="List" name="SET_RESOLUTION">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="bool" name="static_value" value="false"/>
+          </Option>
+        </Option>
+        <Option type="List" name="SOURCE_CRS">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="invalid" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TARGET_CRS">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="invalid" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="X_RESOLUTION">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="invalid" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="Y_RESOLUTION">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="invalid" name="static_value"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="gdal:slope_1">
+      <Option type="bool" name="active" value="true"/>
+      <Option name="alg_config"/>
+      <Option type="QString" name="alg_id" value="gdal:slope"/>
+      <Option type="QString" name="component_description" value="Slope"/>
+      <Option type="double" name="component_pos_x" value="1064"/>
+      <Option type="double" name="component_pos_y" value="202"/>
+      <Option type="StringList" name="dependencies">
+        <Option type="QString" value="gdal:cliprasterbymasklayer_1"/>
+        <Option type="QString" value="gdal:warpreproject_1"/>
+      </Option>
+      <Option type="QString" name="id" value="gdal:slope_1"/>
+      <Option type="Map" name="outputs">
+        <Option type="Map" name="Slope">
+          <Option type="QString" name="child_id" value="gdal:slope_1"/>
+          <Option type="QString" name="component_description" value="Slope"/>
+          <Option type="double" name="component_pos_x" value="1371"/>
+          <Option type="double" name="component_pos_y" value="131"/>
+          <Option type="invalid" name="default_value"/>
+          <Option type="bool" name="mandatory" value="false"/>
+          <Option type="QString" name="name" value="Slope"/>
+          <Option type="QString" name="output_name" value="OUTPUT"/>
+        </Option>
+      </Option>
+      <Option type="bool" name="outputs_collapsed" value="true"/>
+      <Option type="bool" name="parameters_collapsed" value="true"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="AS_PERCENT">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="bool" name="static_value" value="false"/>
+          </Option>
+        </Option>
+        <Option type="List" name="BAND">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="QString" name="static_value" value="1"/>
+          </Option>
+        </Option>
+        <Option type="List" name="COMPUTE_EDGES">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="bool" name="static_value" value="false"/>
+          </Option>
+        </Option>
+        <Option type="List" name="EXTRA">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="QString" name="static_value" value=""/>
+          </Option>
+        </Option>
+        <Option type="List" name="INPUT">
+          <Option type="Map">
+            <Option type="QString" name="child_id" value="gdal:warpreproject_1"/>
+            <Option type="QString" name="output_name" value="OUTPUT"/>
+            <Option type="int" name="source" value="1"/>
+          </Option>
+        </Option>
+        <Option type="List" name="OPTIONS">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="QString" name="static_value" value=""/>
+          </Option>
+        </Option>
+        <Option type="List" name="SCALE">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="double" name="static_value" value="1"/>
+          </Option>
+        </Option>
+        <Option type="List" name="ZEVENBERGEN">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="bool" name="static_value" value="false"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="gdal:warpreproject_1">
+      <Option type="bool" name="active" value="true"/>
+      <Option name="alg_config"/>
+      <Option type="QString" name="alg_id" value="gdal:warpreproject"/>
+      <Option type="QString" name="component_description" value="Warp (reproject)"/>
+      <Option type="double" name="component_pos_x" value="760"/>
+      <Option type="double" name="component_pos_y" value="276"/>
+      <Option type="StringList" name="dependencies">
+        <Option type="QString" value="gdal:cliprasterbymasklayer_1"/>
+      </Option>
+      <Option type="QString" name="id" value="gdal:warpreproject_1"/>
+      <Option name="outputs"/>
+      <Option type="bool" name="outputs_collapsed" value="true"/>
+      <Option type="bool" name="parameters_collapsed" value="true"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="DATA_TYPE">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="int" name="static_value" value="0"/>
+          </Option>
+        </Option>
+        <Option type="List" name="EXTRA">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="QString" name="static_value" value=""/>
+          </Option>
+        </Option>
+        <Option type="List" name="INPUT">
+          <Option type="Map">
+            <Option type="QString" name="child_id" value="gdal:cliprasterbymasklayer_1"/>
+            <Option type="QString" name="output_name" value="OUTPUT"/>
+            <Option type="int" name="source" value="1"/>
+          </Option>
+        </Option>
+        <Option type="List" name="MULTITHREADING">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="bool" name="static_value" value="false"/>
+          </Option>
+        </Option>
+        <Option type="List" name="NODATA">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="invalid" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="OPTIONS">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="QString" name="static_value" value=""/>
+          </Option>
+        </Option>
+        <Option type="List" name="RESAMPLING">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="int" name="static_value" value="0"/>
+          </Option>
+        </Option>
+        <Option type="List" name="SOURCE_CRS">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="invalid" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TARGET_CRS">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="QgsCoordinateReferenceSystem" name="static_value">
+              <spatialrefsys>
+                <wkt>PROJCRS["ETRS89 UTM Nord fuseau 32",BASEGEOGCRS["ETRS89 geographiques (dms)",DATUM["European Terrestrial Reference System 1989",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["IGNF","ETRS89G"]],CONVERSION["UTM NORD FUSEAU 32",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",9,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9996,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["EUROPE (ETRS89) - UTM NORD FUSEAU 32"],BBOX[27.5,6,71.5,12]],ID["IGNF","ETRS89UTM32"]]</wkt>
+                <proj4>+proj=utm +zone=32 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+                <srsid>62567</srsid>
+                <srid>520002567</srid>
+                <authid>IGNF:ETRS89UTM32</authid>
+                <description>ETRS89 UTM Nord fuseau 32</description>
+                <projectionacronym>utm</projectionacronym>
+                <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+                <geographicflag>false</geographicflag>
+              </spatialrefsys>
+            </Option>
+          </Option>
+        </Option>
+        <Option type="List" name="TARGET_EXTENT">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="invalid" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TARGET_EXTENT_CRS">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="invalid" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TARGET_RESOLUTION">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="invalid" name="static_value"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="saga:catchmentarea_1">
+      <Option type="bool" name="active" value="true"/>
+      <Option name="alg_config"/>
+      <Option type="QString" name="alg_id" value="saga:catchmentarea"/>
+      <Option type="QString" name="component_description" value="Catchment area"/>
+      <Option type="double" name="component_pos_x" value="1082"/>
+      <Option type="double" name="component_pos_y" value="382"/>
+      <Option type="StringList" name="dependencies">
+        <Option type="QString" value="gdal:cliprasterbymasklayer_1"/>
+        <Option type="QString" value="gdal:warpreproject_1"/>
+      </Option>
+      <Option type="QString" name="id" value="saga:catchmentarea_1"/>
+      <Option type="Map" name="outputs">
+        <Option type="Map" name="catchment">
+          <Option type="QString" name="child_id" value="saga:catchmentarea_1"/>
+          <Option type="QString" name="component_description" value="catchment"/>
+          <Option type="double" name="component_pos_x" value="1348"/>
+          <Option type="double" name="component_pos_y" value="462"/>
+          <Option type="invalid" name="default_value"/>
+          <Option type="bool" name="mandatory" value="false"/>
+          <Option type="QString" name="name" value="catchment"/>
+          <Option type="QString" name="output_name" value="FLOW"/>
+        </Option>
+      </Option>
+      <Option type="bool" name="outputs_collapsed" value="true"/>
+      <Option type="bool" name="parameters_collapsed" value="true"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="ELEVATION">
+          <Option type="Map">
+            <Option type="QString" name="child_id" value="gdal:warpreproject_1"/>
+            <Option type="QString" name="output_name" value="OUTPUT"/>
+            <Option type="int" name="source" value="1"/>
+          </Option>
+        </Option>
+        <Option type="List" name="METHOD">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="int" name="static_value" value="0"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="saga:topographicwetnessindextwi_1">
+      <Option type="bool" name="active" value="true"/>
+      <Option name="alg_config"/>
+      <Option type="QString" name="alg_id" value="saga:topographicwetnessindextwi"/>
+      <Option type="QString" name="component_description" value="Topographic wetness index (twi)"/>
+      <Option type="double" name="component_pos_x" value="1454"/>
+      <Option type="double" name="component_pos_y" value="316"/>
+      <Option type="StringList" name="dependencies">
+        <Option type="QString" value="gdal:cliprasterbymasklayer_1"/>
+        <Option type="QString" value="gdal:slope_1"/>
+        <Option type="QString" value="gdal:warpreproject_1"/>
+        <Option type="QString" value="saga:catchmentarea_1"/>
+      </Option>
+      <Option type="QString" name="id" value="saga:topographicwetnessindextwi_1"/>
+      <Option type="Map" name="outputs">
+        <Option type="Map" name="TWI_output">
+          <Option type="QString" name="child_id" value="saga:topographicwetnessindextwi_1"/>
+          <Option type="QString" name="component_description" value="TWI_output"/>
+          <Option type="double" name="component_pos_x" value="1759"/>
+          <Option type="double" name="component_pos_y" value="313"/>
+          <Option type="invalid" name="default_value"/>
+          <Option type="bool" name="mandatory" value="false"/>
+          <Option type="QString" name="name" value="TWI_output"/>
+          <Option type="QString" name="output_name" value="TWI"/>
+        </Option>
+      </Option>
+      <Option type="bool" name="outputs_collapsed" value="true"/>
+      <Option type="bool" name="parameters_collapsed" value="true"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="AREA">
+          <Option type="Map">
+            <Option type="QString" name="child_id" value="saga:catchmentarea_1"/>
+            <Option type="QString" name="output_name" value="FLOW"/>
+            <Option type="int" name="source" value="1"/>
+          </Option>
+        </Option>
+        <Option type="List" name="CONV">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="int" name="static_value" value="1"/>
+          </Option>
+        </Option>
+        <Option type="List" name="METHOD">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="int" name="static_value" value="0"/>
+          </Option>
+        </Option>
+        <Option type="List" name="SLOPE">
+          <Option type="Map">
+            <Option type="QString" name="child_id" value="gdal:slope_1"/>
+            <Option type="QString" name="output_name" value="OUTPUT"/>
+            <Option type="int" name="source" value="1"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TRANS">
+          <Option type="Map">
+            <Option type="int" name="source" value="2"/>
+            <Option type="invalid" name="static_value"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+  </Option>
+  <Option name="help"/>
+  <Option name="modelVariables"/>
+  <Option type="QString" name="model_group" value=""/>
+  <Option type="QString" name="model_name" value="TWI"/>
+  <Option type="Map" name="parameterDefinitions">
+    <Option type="Map" name="DEM">
+      <Option type="invalid" name="default"/>
+      <Option type="QString" name="description" value="DEM"/>
+      <Option type="int" name="flags" value="0"/>
+      <Option name="metadata"/>
+      <Option type="QString" name="name" value="DEM"/>
+      <Option type="QString" name="parameter_type" value="raster"/>
+    </Option>
+    <Option type="Map" name="extent">
+      <Option type="List" name="data_types">
+        <Option type="int" value="2"/>
+      </Option>
+      <Option type="invalid" name="default"/>
+      <Option type="QString" name="description" value="Extent"/>
+      <Option type="int" name="flags" value="0"/>
+      <Option name="metadata"/>
+      <Option type="QString" name="name" value="extent"/>
+      <Option type="QString" name="parameter_type" value="vector"/>
+    </Option>
+    <Option type="Map" name="gdal:slope_1:Slope">
+      <Option type="bool" name="create_by_default" value="true"/>
+      <Option type="invalid" name="default"/>
+      <Option type="QString" name="description" value="Slope"/>
+      <Option type="int" name="flags" value="0"/>
+      <Option name="metadata"/>
+      <Option type="QString" name="name" value="gdal:slope_1:Slope"/>
+      <Option type="QString" name="parameter_type" value="rasterDestination"/>
+      <Option type="bool" name="supports_non_file_outputs" value="false"/>
+    </Option>
+    <Option type="Map" name="saga:catchmentarea_1:catchment">
+      <Option type="bool" name="create_by_default" value="true"/>
+      <Option type="invalid" name="default"/>
+      <Option type="QString" name="description" value="catchment"/>
+      <Option type="int" name="flags" value="0"/>
+      <Option name="metadata"/>
+      <Option type="QString" name="name" value="saga:catchmentarea_1:catchment"/>
+      <Option type="QString" name="parameter_type" value="rasterDestination"/>
+      <Option type="bool" name="supports_non_file_outputs" value="false"/>
+    </Option>
+    <Option type="Map" name="saga:topographicwetnessindextwi_1:TWI_output">
+      <Option type="bool" name="create_by_default" value="true"/>
+      <Option type="invalid" name="default"/>
+      <Option type="QString" name="description" value="TWI_output"/>
+      <Option type="int" name="flags" value="0"/>
+      <Option name="metadata"/>
+      <Option type="QString" name="name" value="saga:topographicwetnessindextwi_1:TWI_output"/>
+      <Option type="QString" name="parameter_type" value="rasterDestination"/>
+      <Option type="bool" name="supports_non_file_outputs" value="false"/>
+    </Option>
+  </Option>
+  <Option type="Map" name="parameters">
+    <Option type="Map" name="DEM">
+      <Option type="QString" name="component_description" value="DEM"/>
+      <Option type="double" name="component_pos_x" value="163"/>
+      <Option type="double" name="component_pos_y" value="290"/>
+      <Option type="QString" name="name" value="DEM"/>
+    </Option>
+    <Option type="Map" name="extent">
+      <Option type="QString" name="component_description" value="extent"/>
+      <Option type="double" name="component_pos_x" value="167"/>
+      <Option type="double" name="component_pos_y" value="186"/>
+      <Option type="QString" name="name" value="extent"/>
+    </Option>
+  </Option>
+</Option>
