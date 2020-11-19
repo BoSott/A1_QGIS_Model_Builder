@@ -4,21 +4,21 @@
 
 This is the second part of Assignment 1. In this assignment you will use the program GDAL/OGR to process geodata in the command line. To solve the exercise refer to the [GDAL documentation](https://gdal.org/).
 
-This is a **group assignment** in which you are supposed to solve these exercises in pairs of two students, but everyone should push the results to their own GitHub repository to get some practice in using git. 
+This is a **group assignment** in which you are supposed to solve these exercises in pairs of two students, but everyone should push the results to their own GitHub repository to get some practice in using git.
 
-Write the answers to the questions in a new markdown file called answers2.md. If your answer includes a command, format it using markdown syntax e.g. 
+Write the answers to the questions in a new markdown file called answers2.md. If your answer includes a command, format it using markdown syntax e.g.
 
 ```
 $ gdalinfo raster.tif
 ```
 
-### 1. Preparation 
+### 1. Preparation
 
 #### 1.1. Update your repository
 
-The original repository [fossgis2021/A1\_QGIS\_Model\_Builder](https://github.com/fossgis2021/A1_QGIS_Model_Builder) now contains a new file called _assignment1\_part2.md_. In order to add this new file to your forked repository, you need to execute the following steps. 
+The original repository [fossgis2021/A1\_QGIS\_Model\_Builder](https://github.com/fossgis2021/A1_QGIS_Model_Builder) now contains a new file called _assignment1\_part2.md_. In order to add this new file to your forked repository, you need to execute the following steps.
 
-1. Show the URLs of remote repositories (e.g. on GitHub) which are connected to your local repository. 
+1. Show the URLs of remote repositories (e.g. on GitHub) which are connected to your local repository.
 
 ```
 $ cd A1_QGIS_Model_Builder
@@ -37,9 +37,9 @@ $ git remote add upstream https://github.com/fossgis2021/A1_QGIS_Model_Builder.g
 $ git pull upstream main
 ```
 
-#### 1.2. Download data 
+#### 1.2. Download data
 
-Download the data for this assignment from [heiBox](https://heibox.uni-heidelberg.de/d/8d5adf89a1e847d3b74f/?dl=1). It contains: 
+Download the data for this assignment from [heiBox](https://heibox.uni-heidelberg.de/d/8d5adf89a1e847d3b74f/?dl=1). It contains:
 
 * [GADM](https://gadm.org/data.html) Administrative areas of Slovenia (gadm36\_SVN.gpkg)
 * Two Digital Elevation Model files covering parts of Slovenia (N45E014.hgt, n45\_e013\_1arc\_v3.tif)
@@ -51,21 +51,33 @@ Download the data for this assignment from [heiBox](https://heibox.uni-heidelber
 
 Use the command `gdalinfo` to answer the following questions about the **two DEM files**, e.g.
 
-1. What is the coordinate reference system (EPSG)? 
+1. What is the coordinate reference system (EPSG)?
+- WGS 84
 2. What is the driver (file format)?
+- .hgt = SRTMHGT
+- .tif GTiff / GeoTIFF
 3. What is the spatial resolution? (Don't forget to provide the units)
+- .hgt = per pixel =  0.00028 Degrees per side)
+- .tif = per pixel = 0.00028 Degrees per side)
 
 #### 2.2 Creating a raster mosaic [4pt]
 
-1. Create a raster mosaic of the files _N45E014.hgt_ and _n45_e013_1arc_v3.tif_ using the command `gdal_merge`. The output file should be called _dem\_merge.tif_. 
-2. Create a raster mosaic of the files _N45E014.hgt_ and _n45_e013_1arc_v3.tif_ using the command `gdalbuildvrt`. The output file should be called _dem\_buildvrt.vrt_. 
-3. Answer the following questions based on the results and the GDAL documentation: 
-	* What is the difference between the two output files? 
+1. Create a raster mosaic of the files _N45E014.hgt_ and _n45_e013_1arc_v3.tif_ using the command `gdal_merge`. The output file should be called _dem\_merge.tif_.
+2. Create a raster mosaic of the files _N45E014.hgt_ and _n45_e013_1arc_v3.tif_ using the command `gdalbuildvrt`. The output file should be called _dem\_buildvrt.vrt_.
+3. Answer the following questions based on the results and the GDAL documentation:
+	* What is the difference between the two output files?
+		- gdalbuildvrt has a .vrt as output. This is a very small file with only references / links pointing to the raw data. Therefore it does not contain data itself and it is changed when the raw data is changed. Works as a descriptor and container for data.
+		- gdalmerge has a .tif as output. That's just a solid TIFF. It made a deepcopy of the raw data and is therefore independant. Changes in one or the other won't effect each other.
+
 	* What might be an advantage of using `gdalbuildvrt` instead of `gdalmerge`?
- 
+
+		- `gdalbuildvrt` if space and / or time are limited resources because linking to a file is way faster and does not need a lot of resources for copying the actual data BUT it comes with the cost of dependent data - that means when the raw data is changed, the VRT will also change as it is only a link to the data and not the data itself. Nice tweek here is that one can open the file in an editor and can read it. Not possible with the TIFF
+
+		- `gdalmerge` if the independence of the data is important - that means the raw data may now be changed without impact on the merged DEM but it takes more time / energy and space
+
 ### 3. Creating a GDAL/OGR script   
 
-Within this exercise you will write a batch/shell script which calculates the slope and creates a hillshade image from a digital elevation model within a selected district of Slovenia. 
+Within this exercise you will write a batch/shell script which calculates the slope and creates a hillshade image from a digital elevation model within a selected district of Slovenia.
 
 ##### 3.1 Creat batch/shell script [1pt]
 Create a file called _calculate\_slope\_hillshade.bat_ on Windows or _calculate\_slope\_hillshade.sh_ on Linux/Mac OS (first line should be) and add the following commands into the file.
@@ -73,14 +85,14 @@ Create a file called _calculate\_slope\_hillshade.bat_ on Windows or _calculate\
 **Note for Mac OS/Linux:** The first line of the shell script should be `#!/bin/sh`.
 
 ##### 3.2 Select target district using `ogr2ogr` [1pt]
-Select the Slovenian district with the name "Koper" from the GeoPackage _gadm36\_SVN.gpkg_ and save it as a new ESRI Shapefile file called _koper.shp_. Add the command in a new line to the _calculate\_slope_ script. 
+Select the Slovenian district with the name "Koper" from the GeoPackage _gadm36\_SVN.gpkg_ and save it as a new ESRI Shapefile file called _koper.shp_. Add the command in a new line to the _calculate\_slope_ script.
 
-**Hint:** Take a look at the examples given in the [ogr2ogr documentation](https://gdal.org/programs/ogr2ogr.html). 
+**Hint:** Take a look at the examples given in the [ogr2ogr documentation](https://gdal.org/programs/ogr2ogr.html).
 
-Verify that the resulting koper.shp file contains exactly one feature by executing the command 
+Verify that the resulting koper.shp file contains exactly one feature by executing the command
 
 ```
-$ ogrinfo koper.shp koper -so 
+$ ogrinfo koper.shp koper -so
 ```
 
 ##### 3.3. Clip the DEM to district. [1pt]
@@ -89,21 +101,21 @@ Clip the merged DEM _dem\_merge.tif_ to the selected district in _koper.shp_ and
 
 ##### 3.4 Calculate the slope  [1pt]
 
-Calculate the slope of the DEM file using a GDAL command. Add the command in a new line to the _calculate\_slope\_hillshade_ script. 
+Calculate the slope of the DEM file using a GDAL command. Add the command in a new line to the _calculate\_slope\_hillshade_ script.
 
 ##### 3.5 Create a hillshade image [1pt]
 
-Create a hill shade image based on the DEM using a GDAL command. Add the command in a new line to the _calculate\_slope\_hillshade_ script. 
+Create a hill shade image based on the DEM using a GDAL command. Add the command in a new line to the _calculate\_slope\_hillshade_ script.
 
 ##### 3.6 Execute the script [1pt]
 
-Replace the district 'Koper' in your script with 'Izola'. Save the script and run it by executing the command `calculate_slope.bat` [Windows] or `./calculate_slope.sh ` [Linux/Mac OS]. You should get the slope and hill shade files for the district of Izola. 
+Replace the district 'Koper' in your script with 'Izola'. Save the script and run it by executing the command `calculate_slope.bat` [Windows] or `./calculate_slope.sh ` [Linux/Mac OS]. You should get the slope and hill shade files for the district of Izola.
 
 **Note for Linux/Mac OS:** You might need to make the file executable using by running `$ chmod +x calculate_slope_hillshade.sh`.
 
 ##### 3.7 Push your script to GitHub
 
-Finally, push your _calculate\_slope\_hillshade_ script to your GitHub repository. 
+Finally, push your _calculate\_slope\_hillshade_ script to your GitHub repository.
 
 #### References
 
